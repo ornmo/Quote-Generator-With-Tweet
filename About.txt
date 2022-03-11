@@ -1,7 +1,12 @@
-This project is
+This project is responsive Quote generator that, when the New Quote button is clicked, a new quote is generated. The Quote can also be Tweeted by using the second button. The Twitter link brings the user to the login page with the quote generated into the Tweet body section 
 
-It uses 
+It uses an asyncronus fetch request to a REST API in order to get the quotes. 
+ALso during the lesson on https://www.udemy.com/course/javascript-web-projects-to-build-your-portfolio-resume/learn/lecture/19289598#questions/16935200 we run into a CORS error and are shown how to resolve it by using a proxy API.
 
-It can be used as an example of 
+A hero pattern vector is used as the background, along with Font Awesome icons and custom Google fonts
 
--
+For the mobile responsive view the font size is increased, the quote generator is realigned and a marigin is applied to the entire page.
+
+It can be used as an example of: 
+
+- quote generator
