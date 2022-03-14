@@ -1,3 +1,5 @@
+// Getting Quote from https://type.fit/api/quotes 
+
 const quoteContainer = document.getElementById('quote-container');
 const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
@@ -8,20 +10,20 @@ const loader = document.getElementById('loader');
 let apiQuotes = [];
 
 // Show Loading
-function loading() {
+function spinnerLoading() {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
-// Hide Loading 
-function complete() {
+// Hide SpinnerLoading 
+function spinnerComplete() {
     loader.hidden = true;
     quoteContainer.hidden = false;
 }
 
 // Show new quote
 function newQuote() {
-    loading();
+    spinnerLoading();
     // pick a random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
     
@@ -33,26 +35,28 @@ function newQuote() {
     }
 
     // Check Quote length to determine styling
-    if (quote.text.lenght > 120) {
+    if (quote.text.length > 120) {
         quoteText.classList.add('long-quote')
     } else {
         quoteText.classList.remove('long-quote')
     }
     // Set Quote, Hide Loader
     quoteText.textContent = quote.text;
-    complete();
+    spinnerComplete();
 }
 
 // Get Quotes from API
 async function getQuotes() {
-    loading();
+    spinnerLoading();
     const apiUrl = 'https://type.fit/api/quotes';
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
         newQuote();
+        
     } catch(error) {
         // Catch error here
+         getQuote();
     }
 }
 
